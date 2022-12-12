@@ -1,0 +1,114 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
+| Date         : Mon Dec 12 23:22:52 2022
+| Host         : SSEERRNN-DESKTOP running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file system2_control_sets_placed.rpt
+| Design       : system2
+| Device       : xc7a35t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    36 |
+|    Minimum number of control sets                        |    36 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   180 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    36 |
+| >= 0 to < 4        |    21 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     2 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     6 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             112 |           67 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              18 |            5 |
+| Yes          | No                    | No                     |              98 |           41 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              40 |           14 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------+-------------------------------------+----------------------------------+------------------+----------------+--------------+
+|            Clock Signal           |            Enable Signal            |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------+-------------------------------------+----------------------------------+------------------+----------------+--------------+
+|  baud_BUFG                        | receiver/data_out_0[4]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | resetButton/state_i_1_n_1           |                                  |                1 |              1 |         1.00 |
+|  genblk1[3].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[1].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[2].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[0].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[5].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[4].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[8].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[6].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[7].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[0]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[6]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[3]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[7]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[1]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[5]              |                                  |                1 |              1 |         1.00 |
+|  baud_BUFG                        | receiver/data_out_0[2]              |                                  |                1 |              1 |         1.00 |
+|  genblk1[9].fdiv/clkDiv_reg_0     |                                     |                                  |                1 |              1 |         1.00 |
+|  genblk1[10].fdiv/CLK             |                                     |                                  |                1 |              2 |         2.00 |
+|  clk_IBUF_BUFG                    |                                     |                                  |                2 |              2 |         1.00 |
+|  inputCast/c3/i_reg[3]_i_1__1_n_1 |                                     |                                  |                1 |              4 |         4.00 |
+|  inputCast/c4/i_reg[3]_i_1__2_n_1 |                                     |                                  |                2 |              4 |         2.00 |
+|  baud_BUFG                        | receiver/op0                        |                                  |                2 |              4 |         2.00 |
+|  inputCast/c2/i_reg[3]_i_1__0_n_1 |                                     |                                  |                1 |              4 |         4.00 |
+|  inputCast/c1/i_reg[3]_i_1_n_1    |                                     |                                  |                1 |              4 |         4.00 |
+|  baud_BUFG                        | receiver/FSM_onehot_state_reg[2][0] |                                  |                1 |              5 |         5.00 |
+|  baud_BUFG                        |                                     | receiver/count[7]_i_1_n_1        |                2 |              8 |         4.00 |
+|  baud_BUFG                        | receiver/data_out_reg[2]_1          |                                  |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                    |                                     | baudrate/clear                   |                3 |             10 |         3.33 |
+|  baud_BUFG                        | write0                              | write3[3]_i_1_n_1                |                7 |             16 |         2.29 |
+|  baud_BUFG                        | receiver/data_out_reg[2]_1          | receiver/FSM_onehot_state_reg[4] |                7 |             24 |         3.43 |
+|  baud_BUFG                        | receiver/E[0]                       |                                  |               10 |             32 |         3.20 |
+|  n_0_2802_BUFG                    |                                     |                                  |               23 |             32 |         1.39 |
+|  baud_BUFG                        | resetButton/d_reg_0                 |                                  |               17 |             40 |         2.35 |
+|  baud_BUFG                        |                                     |                                  |               26 |             50 |         1.92 |
++-----------------------------------+-------------------------------------+----------------------------------+------------------+----------------+--------------+
+
+
