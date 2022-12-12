@@ -52,7 +52,7 @@ module system2(output wire RsTx,
 
     //////////////////////////////////
     // r/w buffer
-    
+
     reg     [31:0]      readbufferBFD; // 4 chars
 
 
@@ -60,14 +60,18 @@ module system2(output wire RsTx,
     // casting i/o
     reg     [31:0]      inputbuffer;
     wire    [31:0]      inputval; //int
-    strToInt inputCast(inputbuffer, inputval);
+    wire    [31:0]      readval; //int
+    
 
-    wire    [3:0]      outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0; // 4 chars
+    wire    [3:0]       outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0;
     wire    [31:0]      outputval; //int
+    wire                readValidOutput;
     wire                validOutput; // for invalid output (NaN)
-    wire           signbuffer;
+    wire                signbuffer;
+    wire                readsignbuffer;
     wire    [31:0]      bufferBFD;
-
+    strToInt inputCast(inputbuffer, inputval);
+    strToInt inputCast2(readbufferBFD, readval);
     assign {outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0}  = {m3,m2,m1,m0};
 
 
@@ -88,12 +92,16 @@ module system2(output wire RsTx,
     wire an0, an1, an2, an3;
 
     assign an = {an3, an2, an1, an0};
+    assign {num3,num2,num1,num0} = {write3,write2,write1,write0};
     wire [3:0] m3,m2,m1,m0 ;
-    round ro0(outputval,signbuffer,m3,m2,m1,m0,validOutput);
-
+    wire [3:0] in3,in2,in1,in0 ;
     reg [3:0] write3,write2,write1,write0;
 
-    assign {num3,num2,num1,num0} = {write3,write2,write1,write0};
+    round ro0(outputval,signbuffer,m3,m2,m1,m0,validOutput);
+    round ro1(readval,readsignbuffer,in3,in2,in1,in0,readValidOutput);
+
+
+
 
     wire [18:0] tclk;
 
@@ -140,6 +148,7 @@ module system2(output wire RsTx,
     initial begin
         counter = 0; enterkey = 1; op = 5;operator = 1;
         op0 = 0;op1 = 0;op2 = 0;op3 = 0;
+        sendlen = 0;
         readbufferBFD   = 32'h30303030;
         {write3,write2,write1,write0}=0;
         state = STATE_ENTERKEY;
@@ -164,8 +173,10 @@ module system2(output wire RsTx,
                         if(data_out >= 8'h30 && data_out <=8'h39) begin
                             readbufferBFD[31:8] = readbufferBFD[23:0];
                             readbufferBFD[7:0] = data_out;
+
                         end
                     end
+                    sendlen = 1;
                     operator = 0;
                     state = STATE_ENTERKEY;
                 end
@@ -176,6 +187,7 @@ module system2(output wire RsTx,
                     readbufferBFD = 32'h30303030;
                     enterkey = 0;
                     calculate =1;
+                    sendlen =0 ;
                     state = STATE_CALCULATE;
                 end
                 else  state  = STATE_SENDMORE;
@@ -188,7 +200,8 @@ module system2(output wire RsTx,
                     if(data_out >= 8'h30 && data_out <=8'h39) begin // 0-9
                         readbufferBFD[31:8] = readbufferBFD[23:0];
                         readbufferBFD[7:0] = data_out;
-                        
+                        sendlen = sendlen+1;
+
                     end
                 endcase
                 state = STATE_ENTERKEY;
@@ -197,7 +210,7 @@ module system2(output wire RsTx,
                 calculate = 0;
                 if(counter < 32) counter = counter+1; //delay for counter
                 else begin
-                     {write3,write2,write1,write0} = {outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0};
+
                     if(validOutput) begin
                         {write3,write2,write1,write0} = {outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0};
                     end
@@ -210,6 +223,7 @@ module system2(output wire RsTx,
                 end
             end
             STATE_SENDMORE: begin
+                if(sendlen>0){ write3,write2,write1,write0} = {in3,in2,in1,in0};
                 if(operator) state = STATE_OPERATOR;
                 else   state = STATE_BEFOREPOINT;
             end

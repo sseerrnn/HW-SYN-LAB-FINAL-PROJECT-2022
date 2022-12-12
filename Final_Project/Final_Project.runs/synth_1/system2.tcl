@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.runs/synth_1/system2.tcl"
+  variable script "D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.runs/synth_1/system2.tcl"
   variable category "vivado_synth"
 }
 
@@ -78,28 +78,28 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.cache/wt} [current_project]
-set_property parent.project_path {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.xpr} [current_project]
+set_property webtalk.parent_dir {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.cache/wt} [current_project]
+set_property parent.project_path {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {C:/Users/sern7/AppData/Roaming/Xilinx/Vivado/2022.1/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
-set_property ip_output_repo {d:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.cache/ip} [current_project]
+set_property ip_output_repo {d:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   {D:/CU/Y3T1/HW SYN Lab I/HWSYNLAB2021/finalproj/sources_1/baudrate_gen.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/clockDiv.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/hexTo7Segment.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/new/intCalculator.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/quadSevenSeg.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/round.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/clockDiv.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/hexTo7Segment.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/new/intCalculator.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/quadSevenSeg.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/new/round.v}
   {D:/CU/Y3T1/HW SYN Lab I/HWSYNLAB2021/finalproj/sources_1/singlePulser.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/new/strToInt.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/new/strToInt.v}
   {D:/CU/Y3T1/HW SYN Lab I/HWSYNLAB2021/finalproj/sources_1/uart_rx.v}
   {D:/CU/Y3T1/HW SYN Lab I/HWSYNLAB2021/finalproj/sources_1/uart_tx.v}
-  {D:/CU/Y3T1/HW SYN Lab I/Final_Project/Final_Project.srcs/sources_1/new/system2.v}
+  {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/new/system2.v}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

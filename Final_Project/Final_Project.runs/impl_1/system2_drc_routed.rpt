@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Mon Dec 12 23:23:10 2022
+| Date         : Tue Dec 13 00:19:33 2022
 | Host         : SSEERRNN-DESKTOP running 64-bit major release  (build 9200)
 | Command      : report_drc -file system2_drc_routed.rpt -pb system2_drc_routed.pb -rpx system2_drc_routed.rpx
 | Design       : system2
@@ -24,7 +24,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 13
+             Violations found: 17
 +----------+----------+-----------------------------------------------------+------------+
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
@@ -32,7 +32,7 @@ Table of Contents
 | DPIP-1   | Warning  | Input pipelining                                    | 2          |
 | DPOP-1   | Warning  | PREG Output pipelining                              | 3          |
 | DPOP-2   | Warning  | MREG Output pipelining                              | 3          |
-| PDRC-153 | Warning  | Gated clock check                                   | 4          |
+| PDRC-153 | Warning  | Gated clock check                                   | 8          |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -92,22 +92,42 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net inputCast/c1/i_reg[3]_i_1_n_1 is a gated clock net sourced by a combinational pin inputCast/c1/i_reg[3]_i_1/O, cell inputCast/c1/i_reg[3]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net inputCast/c1/i_reg[3]_i_1__2_n_1 is a gated clock net sourced by a combinational pin inputCast/c1/i_reg[3]_i_1__2/O, cell inputCast/c1/i_reg[3]_i_1__2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net inputCast/c2/i_reg[3]_i_1__0_n_1 is a gated clock net sourced by a combinational pin inputCast/c2/i_reg[3]_i_1__0/O, cell inputCast/c2/i_reg[3]_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net inputCast/c2/i_reg[3]_i_1__3_n_1 is a gated clock net sourced by a combinational pin inputCast/c2/i_reg[3]_i_1__3/O, cell inputCast/c2/i_reg[3]_i_1__3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
 Gated clock check  
-Net inputCast/c3/i_reg[3]_i_1__1_n_1 is a gated clock net sourced by a combinational pin inputCast/c3/i_reg[3]_i_1__1/O, cell inputCast/c3/i_reg[3]_i_1__1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net inputCast/c3/i_reg[3]_i_1__4_n_1 is a gated clock net sourced by a combinational pin inputCast/c3/i_reg[3]_i_1__4/O, cell inputCast/c3/i_reg[3]_i_1__4. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#4 Warning
 Gated clock check  
-Net inputCast/c4/i_reg[3]_i_1__2_n_1 is a gated clock net sourced by a combinational pin inputCast/c4/i_reg[3]_i_1__2/O, cell inputCast/c4/i_reg[3]_i_1__2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net inputCast/c4/i_reg[3]_i_1__5_n_1 is a gated clock net sourced by a combinational pin inputCast/c4/i_reg[3]_i_1__5/O, cell inputCast/c4/i_reg[3]_i_1__5. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net inputCast2/c1/i_reg[3]_i_1__6_n_1 is a gated clock net sourced by a combinational pin inputCast2/c1/i_reg[3]_i_1__6/O, cell inputCast2/c1/i_reg[3]_i_1__6. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net inputCast2/c2/i_reg[3]_i_1_n_1 is a gated clock net sourced by a combinational pin inputCast2/c2/i_reg[3]_i_1/O, cell inputCast2/c2/i_reg[3]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net inputCast2/c3/i_reg[3]_i_1__0_n_1 is a gated clock net sourced by a combinational pin inputCast2/c3/i_reg[3]_i_1__0/O, cell inputCast2/c3/i_reg[3]_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
+Gated clock check  
+Net inputCast2/c4/i_reg[3]_i_1__1_n_1 is a gated clock net sourced by a combinational pin inputCast2/c4/i_reg[3]_i_1__1/O, cell inputCast2/c4/i_reg[3]_i_1__1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 
