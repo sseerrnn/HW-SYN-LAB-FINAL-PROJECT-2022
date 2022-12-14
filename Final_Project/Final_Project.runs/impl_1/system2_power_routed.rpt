@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date             : Wed Dec 14 11:29:58 2022
+| Date             : Wed Dec 14 12:25:33 2022
 | Host             : Sern running 64-bit major release  (build 9200)
 | Command          : report_power -file system2_power_routed.rpt -pb system2_power_summary_routed.pb -rpx system2_power_routed.rpx
 | Design           : system2
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.111        |
+| Total On-Chip Power (W)  | 0.114        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.039        |
+| Dynamic (W)              | 0.042        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.4         |
@@ -52,18 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.015 |     5053 |       --- |             --- |
-|   LUT as Logic |     0.012 |     3309 |     20800 |           15.91 |
-|   CARRY4       |     0.002 |      714 |      8150 |            8.76 |
-|   Register     |    <0.001 |      270 |     41600 |            0.65 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |     0.015 |     6493 |       --- |             --- |
+|   LUT as Logic |     0.013 |     4459 |     20800 |           21.44 |
+|   CARRY4       |     0.002 |      732 |      8150 |            8.98 |
+|   Register     |    <0.001 |      302 |     41600 |            0.73 |
+|   F7/F8 Muxes  |    <0.001 |      107 |     32600 |            0.33 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |       69 |       --- |             --- |
-| Signals        |     0.012 |     4250 |       --- |             --- |
-| DSPs           |    <0.001 |        3 |        90 |            3.33 |
-| I/O            |     0.012 |       22 |       106 |           20.75 |
+|   Others       |     0.000 |       73 |       --- |             --- |
+| Signals        |     0.013 |     5520 |       --- |             --- |
+| DSPs           |    <0.001 |        5 |        90 |            5.56 |
+| I/O            |     0.012 |       36 |       106 |           33.96 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.111 |          |           |                 |
+| Total          |     0.114 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.037 |       0.027 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.039 |       0.030 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,14 +140,16 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------+-----------+
-| Name         | Power (W) |
-+--------------+-----------+
-| system2      |     0.039 |
-|   cal        |     0.018 |
-|     alu1     |     0.018 |
-|   inputCast2 |     0.005 |
-|     c4       |     0.005 |
-+--------------+-----------+
++-------------------+-----------+
+| Name              | Power (W) |
++-------------------+-----------+
+| system2           |     0.042 |
+|   cal             |     0.018 |
+|     alu1          |     0.018 |
+|   inputCast2      |     0.005 |
+|     c4            |     0.005 |
+|   vga             |     0.002 |
+|     vga_sync_unit |     0.002 |
++-------------------+-----------+
 
 

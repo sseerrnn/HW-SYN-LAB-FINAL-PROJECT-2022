@@ -25,10 +25,13 @@ module system2(output wire RsTx,
     output wire [15:10] led,
     output dp,
     output [3:0] an,
+    output wire Hsync, Vsync, //vga
+    output wire [3:0] vgaRed, vgaGreen, vgaBlue, //vga
     input wire RsRx,
     input clk,
     input btnC);
     //////////////////////////////////
+    
     // uart
     wire                baud; // baudrate
     baudrate_gen baudrate(clk, baud);
@@ -44,7 +47,15 @@ module system2(output wire RsTx,
     wire                sent; // = sent 8 bits successfully
     reg                 wr_en; // = enable transmitter
     uart_tx transmitter(baud, data_in, wr_en, sent, RsTx);
-
+    //////////////////////////////////
+    // vga 
+    
+    vga vga(
+        .clk(clk) , 
+        .num3(write3),.num2(write2),.num1(write1),.num0(write0),.op(op),.posneg(signbuffer),.is_nan(~(validOutput&&~zerodiv)),
+        .hsync(Hsync), .vsync(Vsync),
+        .rgb({vgaRed, vgaGreen, vgaBlue})
+    );
     //////////////////////////////////
     // push button
     wire                reset;
@@ -157,7 +168,7 @@ module system2(output wire RsTx,
 
     always @(posedge baud) begin
         if(reset) begin
-            sendlen = 0; counter = 0; enterkey = 1; op = 5;  operator = 1; 
+            sendlen = 0; counter = 0; enterkey = 1; op = 5;  operator = 1;
             readbufferBFD   = 32'h30303030;
             {write3,write2,write1,write0}=0;
             state = STATE_ENTERKEY;

@@ -121,7 +121,6 @@ module vga(
     input wire [3:0] op,
     input wire posneg,
     input wire is_nan,
-    input wire [1:0] push,
     output wire hsync, vsync,
     output wire [11:0] rgb
 	);
@@ -158,13 +157,17 @@ module vga(
      reg [64:0] rom [0:1739];
      initial $readmemb("7-seg_bin_map.data", rom);
 
+     reg [3:0] num3 = 4;
+     reg [3:0] num2 = 3;
+     reg [3:0] num1 = 2;
+     reg [3:0] num0 = 1;
      reg [3:0] tnum3 = 0;
      reg [3:0] tnum2 = 0;
      reg [3:0] tnum1 = 0;
      reg [3:0] tnum0 = 0;
-//     reg posneg = 0;
-//     reg [3:0] op = 3;
-//     reg is_nan = 1;
+     reg posneg = 0;
+     reg [3:0] op = 3;
+     reg is_nan = 1;
      /*
      0 = +
      1 = -
@@ -231,7 +234,7 @@ module vga(
            end
            else if((x - LEFT_SPACE) < 5*BLOCK_WIDTH) begin
                // map num0
-              if((x - LEFT_SPACE-4*BLOCK_WIDTH) >= 0 && (x - LEFT_SPACE-4*BLOCK_WIDTH )< NUM_WIDTH && rom[(num0+tnum0)*120+y-TOP_SPACE)][(x - LEFT_SPACE-4*BLOCK_WIDTH)] == 1 )begin
+              if((x - LEFT_SPACE-4*BLOCK_WIDTH) >= 0 && (x - LEFT_SPACE-4*BLOCK_WIDTH )< NUM_WIDTH && rom[((num0+tnum0)*120+y-TOP_SPACE)][(x - LEFT_SPACE-4*BLOCK_WIDTH)] == 1 )begin
               // fill black
                    rgb_reg[11:0] <= 12'b000000000000;
               end

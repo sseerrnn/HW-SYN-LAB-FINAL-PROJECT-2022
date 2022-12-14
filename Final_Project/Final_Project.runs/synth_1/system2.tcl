@@ -88,6 +88,7 @@ set_property ip_output_repo d:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FIN
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_mem D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/7-seg_bin_map.data
 read_verilog -library xil_defaultlib {
   D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/baudrate_gen.v
   D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/imports/new/clockDiv.v
@@ -100,6 +101,8 @@ read_verilog -library xil_defaultlib {
   D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/uart_rx.v
   D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/uart_tx.v
   D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/new/system2.v
+  D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/system.v
+  D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/sources_1/imports/sources_1/vga_sync.v
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -114,6 +117,8 @@ read_xdc D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Fin
 set_property used_in_implementation false [get_files D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/constrs_1/imports/constrs_1/Basys3_Master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/utils_1/imports/synth_1/system2.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
