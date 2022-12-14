@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date             : Tue Dec 13 00:19:34 2022
-| Host             : SSEERRNN-DESKTOP running 64-bit major release  (build 9200)
+| Date             : Wed Dec 14 11:29:58 2022
+| Host             : Sern running 64-bit major release  (build 9200)
 | Command          : report_power -file system2_power_routed.rpt -pb system2_power_summary_routed.pb -rpx system2_power_routed.rpx
 | Design           : system2
 | Device           : xc7a35tcpg236-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.085        |
+| Total On-Chip Power (W)  | 0.111        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.013        |
+| Dynamic (W)              | 0.039        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.6         |
-| Junction Temperature (C) | 25.4         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |     5042 |       --- |             --- |
-|   LUT as Logic |    <0.001 |     3279 |     20800 |           15.76 |
-|   Register     |    <0.001 |      291 |     41600 |            0.70 |
-|   CARRY4       |    <0.001 |      714 |      8150 |            8.76 |
+| Slice Logic    |     0.015 |     5053 |       --- |             --- |
+|   LUT as Logic |     0.012 |     3309 |     20800 |           15.91 |
+|   CARRY4       |     0.002 |      714 |      8150 |            8.76 |
+|   Register     |    <0.001 |      270 |     41600 |            0.65 |
+|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
 |   Others       |     0.000 |       69 |       --- |             --- |
-|   BUFG         |     0.000 |        2 |        32 |            6.25 |
-| Signals        |    <0.001 |     4253 |       --- |             --- |
-| DSPs           |     0.000 |        3 |        90 |            3.33 |
+| Signals        |     0.012 |     4250 |       --- |             --- |
+| DSPs           |    <0.001 |        3 |        90 |            3.33 |
 | I/O            |     0.012 |       22 |       106 |           20.75 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.085 |          |           |                 |
+| Total          |     0.111 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.011 |       0.001 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.037 |       0.027 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,10 +139,14 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+---------+-----------+
-| Name    | Power (W) |
-+---------+-----------+
-| system2 |     0.013 |
-+---------+-----------+
++--------------+-----------+
+| Name         | Power (W) |
++--------------+-----------+
+| system2      |     0.039 |
+|   cal        |     0.018 |
+|     alu1     |     0.018 |
+|   inputCast2 |     0.005 |
+|     c4       |     0.005 |
++--------------+-----------+
 
 

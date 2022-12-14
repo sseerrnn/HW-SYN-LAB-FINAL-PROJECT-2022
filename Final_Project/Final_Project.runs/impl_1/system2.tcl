@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.runs/impl_1/system2.tcl"
+  variable script "D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.runs/impl_1/system2.tcl"
   variable category "vivado_impl"
 }
 
@@ -132,15 +132,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.cache/wt} [current_project]
-  set_property parent.project_path {D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.xpr} [current_project]
-  set_property ip_output_repo {{D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.cache/ip}} [current_project]
+  set_property webtalk.parent_dir D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.cache/wt [current_project]
+  set_property parent.project_path D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.xpr [current_project]
+  set_property ip_output_repo D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet {{D:/CU/Y3T1/HW SYN Lab I/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.runs/synth_1/system2.dcp}}
+  add_files -quiet D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.runs/synth_1/system2.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc {{D:/CU/Y3T1/HW SYN Lab I/HWSYNLAB2021/lab02/constrs_1/Basys3_Master.xdc}}
+  read_xdc D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/constrs_1/imports/constrs_1/Basys3_Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

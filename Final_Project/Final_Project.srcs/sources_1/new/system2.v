@@ -61,7 +61,7 @@ module system2(output wire RsTx,
     reg     [31:0]      inputbuffer;
     wire    [31:0]      inputval; //int
     wire    [31:0]      readval; //int
-    
+
 
     wire    [3:0]       outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0;
     wire    [31:0]      outputval; //int
@@ -80,7 +80,8 @@ module system2(output wire RsTx,
     reg     [2:0]       op; // 0+ 1- 2* 3/ 4s 5c
     reg                 enterkey;
     reg                 calculate;
-    intCalculator cal(baud, reset, inputval, op, calculate, outputval);
+    wire zerodiv;
+    intCalculator cal(baud, reset, inputval, op, calculate, outputval,zerodiv);
     //////////////////////////////////
     // 7-segment
     wire [3:0] num0;
@@ -126,7 +127,7 @@ module system2(output wire RsTx,
     assign led[13] = op1;
     assign led[12] = op2;
     assign led[11] = op3;
-    assign led[10] = ~validOutput;
+    assign led[10] = ~(validOutput&&~zerodiv);
 
 
     //////////////////////////////////
@@ -155,6 +156,12 @@ module system2(output wire RsTx,
     end
 
     always @(posedge baud) begin
+        if(reset) begin
+            sendlen = 0; counter = 0; enterkey = 1; op = 5;  operator = 1; 
+            readbufferBFD   = 32'h30303030;
+            {write3,write2,write1,write0}=0;
+            state = STATE_ENTERKEY;
+        end
         case(state)
             STATE_OPERATOR: begin
                 if(new_input) begin
@@ -173,10 +180,11 @@ module system2(output wire RsTx,
                         if(data_out >= 8'h30 && data_out <=8'h39) begin
                             readbufferBFD[31:8] = readbufferBFD[23:0];
                             readbufferBFD[7:0] = data_out;
+                            sendlen =sendlen+ 1;
 
                         end
                     end
-                    sendlen = 1;
+                    //                    sendlen = 1;
                     operator = 0;
                     state = STATE_ENTERKEY;
                 end
@@ -211,7 +219,7 @@ module system2(output wire RsTx,
                 if(counter < 32) counter = counter+1; //delay for counter
                 else begin
 
-                    if(validOutput) begin
+                    if(validOutput&&~zerodiv) begin
                         {write3,write2,write1,write0} = {outputbuffer3,outputbuffer2,outputbuffer1,outputbuffer0};
                     end
                     else begin

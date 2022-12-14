@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date                      : Tue Dec 13 00:19:13 2022
-| Host                      : SSEERRNN-DESKTOP running 64-bit major release  (build 9200)
+| Date                      : Wed Dec 14 11:29:23 2022
+| Host                      : Sern running 64-bit major release  (build 9200)
 | Command                   : report_io -file system2_io_placed.rpt
 | Design                    : system2
 | Device                    : xc7a35t

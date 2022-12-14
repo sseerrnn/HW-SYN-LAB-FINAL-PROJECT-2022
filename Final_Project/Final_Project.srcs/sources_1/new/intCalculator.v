@@ -25,7 +25,8 @@ module intCalculator(
     input wire signed [31:0]   inputval,
     input wire        [2:0]    op,
     input wire                 en,
-    output reg signed [31:0]   outputval
+    output reg signed [31:0]   outputval,
+    output reg zerodiv
     );
     reg  signed [31:0] currentval;     // current val in the accumulator
     wire signed [31:0] aluval;
@@ -33,9 +34,11 @@ module intCalculator(
     
     reg state;
 
-    initial begin state = 0; currentval = 0; end
+    initial begin state = 0; currentval = 0;
+    zerodiv = 0; end
     always @(posedge clk) begin
-        if(reset)       begin currentval = 0;           state = 0; end
+        if(inputval==0 && op==3) zerodiv = 1;
+        if(reset)       begin currentval = 0;           state = 0; zerodiv= 0;end
         case(state)
             0: if(en)   begin currentval = aluval;      state = 1; end
             1: if(~en)  begin outputval = currentval;   state = 0; end
@@ -51,6 +54,7 @@ module alu(
     );
     
     always@(A or B or op)
+        
         case(op)
             0: S = A+B;
             1: S = A-B;

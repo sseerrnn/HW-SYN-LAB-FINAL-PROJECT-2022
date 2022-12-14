@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:{D:/CU/Y3T1/HW SYN Lab I/HWSYNLAB2021/lab02/constrs_1/Basys3_Master.xdc} rfile:../../../../../HWSYNLAB2021/lab02/constrs_1/Basys3_Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:D:/Program_Files/CHULA/Y3TERM1/HW_Lab/HW-SYN-LAB-FINAL-PROJECT-2022/Final_Project/Final_Project.srcs/constrs_1/imports/constrs_1/Basys3_Master.xdc rfile:../../../Final_Project.srcs/constrs_1/imports/constrs_1/Basys3_Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ} [current_design]
